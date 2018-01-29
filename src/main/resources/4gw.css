@@ -1,0 +1,36 @@
+.table {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 700px;
+
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    background: cornflowerblue;
+}
+
+.coin {
+    height: 100%;
+    width: 100%;
+    border-radius: 45px;
+}
+
+.free {
+    background: lightgoldenrodyellow;
+}
+
+.red {
+    background: indianred;
+}
+
+.yellow {
+    background: yellow;
+}
