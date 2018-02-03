@@ -1,4 +1,4 @@
-package org.voegtle.four.view
+package org.voegtle.four.view.board
 
 import kotlinx.html.dom.create
 import kotlinx.html.js.div

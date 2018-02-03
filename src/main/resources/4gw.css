@@ -34,3 +34,36 @@
 .yellow {
     background: yellow;
 }
+
+.players {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.player {
+    width: 48%;
+    display: flex;
+    flex-direction: row;
+}
+
+.player-name {
+    width: 250px;
+    height: 25px;
+    margin-top: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 16px;
+}
+
+.player-box {
+    height: 40px;
+    width: 40px;
+    padding: 8px;
+}
+
+.player-coin {
+    height: 100%;
+    width: 100%;
+    border-radius: 16px;
+}

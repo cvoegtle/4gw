@@ -1,7 +1,9 @@
-package org.voegtle.four.view
+package org.voegtle.four.view.board
 
 import kotlinx.html.dom.create
 import kotlinx.html.js.div
+import org.voegtle.four.view.Style
+import org.voegtle.four.view.combine
 import org.w3c.dom.HTMLDivElement
 import kotlin.browser.document
 
@@ -9,13 +11,8 @@ class Cell {
   val html: HTMLDivElement = document.create.div {}
   private val innerHtml: HTMLDivElement = document.create.div {}
 
-  private val CLASS_BASE = "coin"
-  private val CLASS_NEUTRAL = "free"
-  private val CLASS_RED = "red"
-  private val CLASS_YELLOW = "yellow"
-
   init {
-    html.className = "box"
+    html.className = Style.BOX
     html.append(innerHtml)
     clear()
   }
@@ -24,11 +21,7 @@ class Cell {
     innerHtml.className = getClassname(State.NEUTRAL)
   }
 
-  private fun getClassname(state: State): String = CLASS_BASE + " " + when(state) {
-    State.NEUTRAL -> CLASS_NEUTRAL
-    State.RED -> CLASS_RED
-    State.YELLOW -> CLASS_YELLOW
-  }
+  private fun getClassname(state: State) = combine(Style.COIN, Style.colorStyle(state))
 
   fun state(state: State) {
     innerHtml.className = getClassname(state)
