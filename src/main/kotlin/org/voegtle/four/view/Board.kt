@@ -4,7 +4,7 @@ import kotlinx.html.dom.create
 import kotlinx.html.js.div
 import kotlin.browser.document
 
-class Board(val rows: Int, val columns: Int) {
+class Board(rows: Int, columns: Int) {
   val html = document.create.div {}
   val rowList = ArrayList<Row>()
 
@@ -16,4 +16,16 @@ class Board(val rows: Int, val columns: Int) {
       rowList.add(row)
     }
   }
+
+  fun clear() {
+    for (row in rowList) {
+      row.clear()
+    }
+  }
+
+  fun setState(row: Int, column: Int, state: State) {
+    rowList[invert(row)].setState(column, state)
+  }
+
+  private fun invert(row: Int) = rowList.size - 1 - row
 }

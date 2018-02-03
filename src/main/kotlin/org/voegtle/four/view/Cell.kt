@@ -9,6 +9,11 @@ class Cell {
   val html: HTMLDivElement = document.create.div {}
   private val innerHtml: HTMLDivElement = document.create.div {}
 
+  private val CLASS_BASE = "coin"
+  private val CLASS_NEUTRAL = "free"
+  private val CLASS_RED = "red"
+  private val CLASS_YELLOW = "yellow"
+
   init {
     html.className = "box"
     html.append(innerHtml)
@@ -16,15 +21,17 @@ class Cell {
   }
 
   fun clear() {
-    innerHtml.className = "coin free"
+    innerHtml.className = getClassname(State.NEUTRAL)
   }
 
-  fun red() {
-    innerHtml.className = "coin red"
+  private fun getClassname(state: State): String = CLASS_BASE + " " + when(state) {
+    State.NEUTRAL -> CLASS_NEUTRAL
+    State.RED -> CLASS_RED
+    State.YELLOW -> CLASS_YELLOW
   }
 
-  fun yellow() {
-    innerHtml.className = "coin yellow"
+  fun state(state: State) {
+    innerHtml.className = getClassname(state)
   }
 
 }
