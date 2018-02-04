@@ -8,10 +8,9 @@ import org.voegtle.four.view.board.State
 import kotlin.browser.document
 
 class Player(state: State) {
-  val html = document.create.div {}
+  val html = document.create.div(Style.PLAYER) {}
   private val nameField = document.create.input {  }
   init {
-    html.className = Style.PLAYER
     val color = PlayerColor(state)
     html.append(color.html)
     nameField.className = Style.PLAYER_NAME

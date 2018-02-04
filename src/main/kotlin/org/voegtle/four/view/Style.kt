@@ -11,6 +11,10 @@ object Style {
   val PLAYER_COIN = "player-coin"
   val PLAYER_NAME = "player-name"
 
+  val TABLE = "table"
+  val ROW = "row"
+  val DROP_BUTTON = "drop-button"
+
   val NEUTRAL = "free"
   val RED = "red"
   val YELLOW = "yellow"
@@ -19,6 +23,9 @@ object Style {
     State.RED -> Style.RED
     State.YELLOW -> Style.YELLOW
   }
+
+
+
 }
 
 fun combine(vararg styles: String): String {

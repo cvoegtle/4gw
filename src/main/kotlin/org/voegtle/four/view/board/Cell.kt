@@ -8,11 +8,10 @@ import org.w3c.dom.HTMLDivElement
 import kotlin.browser.document
 
 class Cell {
-  val html: HTMLDivElement = document.create.div {}
+  val html: HTMLDivElement = document.create.div(Style.BOX) {}
   private val innerHtml: HTMLDivElement = document.create.div {}
 
   init {
-    html.className = Style.BOX
     html.append(innerHtml)
     clear()
   }
