@@ -10,7 +10,7 @@ class Row(size: Int) {
   val html: HTMLDivElement = document.create.div(Style.ROW) {}
   val cells = ArrayList<Cell>()
   init {
-    for (i in 1..size) {
+    for (i in 0..size-1) {
       val cell = Cell()
       cells.add(cell)
       html.append(cell.html)

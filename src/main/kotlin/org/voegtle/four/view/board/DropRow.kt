@@ -6,13 +6,14 @@ import org.voegtle.four.view.Style
 import org.w3c.dom.HTMLDivElement
 import kotlin.browser.document
 
-class DropRow(size: Int) {
+class DropRow(size: Int, clickListener: (Int) -> Unit) {
+
   val html: HTMLDivElement = document.create.div(Style.ROW) {}
   private val buttons = ArrayList<DropButton>()
 
   init {
-    for (i in 1..size) {
-      val button = DropButton()
+    for (i in 0..size - 1) {
+      val button = DropButton(i, clickListener)
       html.append(button.html)
       buttons.add(button)
     }

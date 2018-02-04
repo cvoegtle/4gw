@@ -5,9 +5,9 @@ import kotlinx.html.js.div
 import org.voegtle.four.view.Style
 import kotlin.browser.document
 
-class Board(rows: Int, columns: Int) {
+class Board(rows: Int, columns: Int, val listener: (Int) -> Unit) {
   val html = document.create.div(Style.TABLE) {}
-  private val dropRow = DropRow(columns)
+  private val dropRow = DropRow(columns, listener)
   private val rowList = ArrayList<Row>()
 
   init {
@@ -33,4 +33,5 @@ class Board(rows: Int, columns: Int) {
   }
 
   private fun invert(row: Int) = rowList.size - 1 - row
+
 }
