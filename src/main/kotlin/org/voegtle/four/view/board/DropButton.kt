@@ -21,4 +21,8 @@ class DropButton(val column: Int, val listener: (Int) -> Unit) {
     html.append(PlayerColor(state).html)
   }
 
+  fun setEnabled(enabled: Boolean) {
+    html.disabled = !enabled
+  }
+
 }

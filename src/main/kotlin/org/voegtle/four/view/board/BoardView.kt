@@ -5,7 +5,7 @@ import kotlinx.html.js.div
 import org.voegtle.four.view.Style
 import kotlin.browser.document
 
-class Board(rows: Int, columns: Int, val listener: (Int) -> Unit) {
+class BoardView(rows: Int, columns: Int, listener: (Int) -> Unit) {
   val html = document.create.div(Style.TABLE) {}
   private val dropRow = DropRow(columns, listener)
   private val rowList = ArrayList<Row>()
@@ -19,8 +19,8 @@ class Board(rows: Int, columns: Int, val listener: (Int) -> Unit) {
     }
   }
 
-  fun setActiveColor(state: State) {
-    dropRow.setState(state)
+  fun setActiveColor(availableColumns: Array<Boolean>, state: State) {
+    dropRow.setState(availableColumns, state)
   }
 
   fun clear() {
@@ -33,5 +33,4 @@ class Board(rows: Int, columns: Int, val listener: (Int) -> Unit) {
   }
 
   private fun invert(row: Int) = rowList.size - 1 - row
-
 }
