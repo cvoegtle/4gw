@@ -33,10 +33,6 @@ compileKotlin2Js {
     kotlinOptions.sourceMap = true
 }
 
-sourceSets {
-    main.kotlin.srcDirs += "src/main/kotlin"
-}
-
 task copyTask(type: Copy) {
     from("${projectDir}/src/main/resources")
     into("${projectDir}/web")
